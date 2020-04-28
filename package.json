@@ -15,6 +15,11 @@
       "path": "dist/index.js",
       "limit": "200B",
       "webpack": false
+    },
+    {
+      "path": "dist/client/utils.js",
+      "limit": "500B",
+      "webpack": false
     }
   ],
   "devDependencies": {
