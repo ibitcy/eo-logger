@@ -1,14 +1,25 @@
 {
   "name": "eo-logger",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/index.js",
   "repository": "https://github.com/ibitcy/eo-logger.git",
   "author": "Maksim Sharipov <m.v.sharipov@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "postbuild": "size-limit",
+    "prepublish": "npm run build"
   },
+  "size-limit": [
+    {
+      "path": "dist/index.js",
+      "limit": "200B",
+      "webpack": false
+    }
+  ],
   "devDependencies": {
+    "@size-limit/preset-small-lib": "^4.4.5",
+    "size-limit": "^4.4.5",
     "typescript": "^3.8.3"
   }
 }
