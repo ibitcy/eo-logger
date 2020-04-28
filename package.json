@@ -20,6 +20,11 @@
       "path": "dist/client/utils.js",
       "limit": "500B",
       "webpack": false
+    },
+    {
+      "path": "dist/client/logger.js",
+      "limit": "900B",
+      "webpack": false
     }
   ],
   "devDependencies": {
