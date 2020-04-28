@@ -25,6 +25,10 @@ export class Logger extends BaseLogger {
       screen: getScreenInformation(),
     };
 
+    if (this.debugMode) {
+      console.debug('[eo-logger]', ecsMessage);
+    }
+
     this.transport.send(ecsMessage);
   }
 }
