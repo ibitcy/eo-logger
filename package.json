@@ -1,0 +1,14 @@
+{
+  "name": "eo-logger",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/ibitcy/eo-logger.git",
+  "author": "Maksim Sharipov <m.v.sharipov@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "typescript": "^3.8.3"
+  }
+}
