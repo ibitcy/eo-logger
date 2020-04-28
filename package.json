@@ -1,6 +1,6 @@
 {
   "name": "eo-logger",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "dist/index.js",
   "repository": "https://github.com/ibitcy/eo-logger.git",
   "author": "Maksim Sharipov <m.v.sharipov@gmail.com>",
@@ -8,7 +8,7 @@
   "scripts": {
     "build": "tsc",
     "postbuild": "size-limit",
-    "prepublish": "npm run build"
+    "preversion": "npm run build"
   },
   "size-limit": [
     {
@@ -23,7 +23,7 @@
     },
     {
       "path": "dist/client/logger.js",
-      "limit": "900B",
+      "limit": "1kB",
       "webpack": false
     }
   ],
