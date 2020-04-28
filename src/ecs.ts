@@ -3,11 +3,13 @@ export namespace ECS {
     Partial<{
       agent: Agent;
       client: Client;
-      custom: Record<string, unknown>;
+      custom: Record<string, unknown>; // Custom field
       ecs: Meta;
       error: Error;
       http: HTTP;
       log: Log;
+      metrics: Record<string, number>; // Custom field
+      screen: Record<string, string>; // Custom field
       service: Service;
       tracing: Tracing;
       url: Url;
