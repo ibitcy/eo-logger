@@ -9,19 +9,18 @@ export class Logger extends BaseLogger {
   public constructor(params?: LoggerParams) {
     super(params);
 
-    this.context.setLog({
-      logger: 'ClientLogger',
-    });
-
     this.context.setUserAgent({
       original: navigator.userAgent,
     });
   }
 
-  public collectMetrics(): void {
+  public collectMetrics(metrics: Record<string, number> = {}): void {
     const ecsMessage = {
       ...this.context.aggregate(),
-      metrics: getPerformanceMetrics(),
+      metrics: {
+        ...getPerformanceMetrics(),
+        ...metrics,
+      },
       screen: getScreenInformation(),
     };
 
