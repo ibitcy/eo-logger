@@ -2,12 +2,20 @@ import { Context } from './context';
 import { Formatter } from './formatter';
 import { Transport } from './transport';
 
+export interface LoggerParams {
+  debugMode?: boolean;
+}
+
 export class Logger {
-  protected debugMode: boolean = false;
+  protected readonly debugMode: boolean;
   protected readonly formatter = new Formatter();
   protected readonly transport = new Transport();
 
   public readonly context = new Context();
+
+  public constructor(params?: LoggerParams) {
+    this.debugMode = Boolean(params?.debugMode);
+  }
 
   public debug(message: string, data?: Record<string, unknown>): void {
     const ecsMessage = this.formatter.formatDebugMessage(

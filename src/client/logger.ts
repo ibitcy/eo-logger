@@ -1,13 +1,13 @@
 import { Context as BaseContext } from '../context';
 import { ECS } from '../ecs';
-import { Logger as BaseLogger } from '../logger';
+import { Logger as BaseLogger, LoggerParams } from '../logger';
 import { getPerformanceMetrics, getScreenInformation } from './utils';
 
 export class Logger extends BaseLogger {
   public readonly context = new Context();
 
-  public constructor() {
-    super();
+  public constructor(params?: LoggerParams) {
+    super(params);
 
     this.context.setLog({
       logger: 'ClientLogger',
