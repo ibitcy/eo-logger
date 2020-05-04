@@ -4,17 +4,21 @@ import { Transport } from './transport';
 
 export interface LoggerParams {
   debugMode?: boolean;
+  formatter?: Formatter;
+  transport?: Transport;
 }
 
 export class Logger {
   protected readonly debugMode: boolean;
-  protected readonly formatter = new Formatter();
-  protected readonly transport = new Transport();
+  protected readonly formatter: Formatter;
+  protected readonly transport: Transport;
 
   public readonly context = new Context();
 
   public constructor(params?: LoggerParams) {
     this.debugMode = Boolean(params?.debugMode);
+    this.formatter = params?.formatter || new Formatter();
+    this.transport = params?.transport || new Transport();
   }
 
   public debug(message: string, data?: Record<string, unknown>): void {
