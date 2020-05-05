@@ -29,7 +29,11 @@
   ],
   "devDependencies": {
     "@size-limit/preset-small-lib": "^4.4.5",
+    "@types/ua-parser-js": "^0.7.33",
     "size-limit": "^4.4.5",
     "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "ua-parser-js": "^0.7.21"
   }
 }
