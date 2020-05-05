@@ -6,14 +6,6 @@ import { getPerformanceMetrics, getScreenInformation } from './utils';
 export class Logger extends BaseLogger {
   public readonly context = new Context();
 
-  public constructor(params?: LoggerParams) {
-    super(params);
-
-    this.context.setUserAgent({
-      original: navigator.userAgent,
-    });
-  }
-
   public collectMetrics(metrics: Record<string, number> = {}): void {
     const ecsMessage = {
       ...this.context.aggregate(),

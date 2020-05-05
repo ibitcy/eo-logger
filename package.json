@@ -7,6 +7,9 @@
     "name": "Maksim Sharipov",
     "url": "https://github.com/pret-a-porter"
   },
+  "engines": {
+    "node": ">= 10"
+  },
   "license": "MIT",
   "scripts": {
     "build": "tsc",
@@ -16,17 +19,17 @@
   "size-limit": [
     {
       "path": "dist/index.js",
-      "limit": "200B",
+      "limit": "180B",
       "webpack": false
     },
     {
       "path": "dist/client/utils.js",
-      "limit": "500B",
+      "limit": "450B",
       "webpack": false
     },
     {
       "path": "dist/client/logger.js",
-      "limit": "1kB",
+      "limit": "600B",
       "webpack": false
     }
   ],
@@ -39,6 +42,7 @@
   },
   "dependencies": {
     "geoip-lite": "^1.4.1",
+    "tslib": "^1.11.1",
     "ua-parser-js": "^0.7.21"
   }
 }

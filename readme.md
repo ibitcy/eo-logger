@@ -3,6 +3,8 @@
 * Isomorphic logger based on Elastic Common Schema
 * Elastic Common Schema typings out of the box
 
+The main idea is make fully isomorphic logger for collect logs by Elastic Common Schema from web applications and NodeJS applications.
+
 ## How to install
 
 ```bash
