@@ -29,11 +29,13 @@
   ],
   "devDependencies": {
     "@size-limit/preset-small-lib": "^4.4.5",
+    "@types/geoip-lite": "^1.1.31",
     "@types/ua-parser-js": "^0.7.33",
     "size-limit": "^4.4.5",
     "typescript": "^3.8.3"
   },
   "dependencies": {
+    "geoip-lite": "^1.4.1",
     "ua-parser-js": "^0.7.21"
   }
 }
