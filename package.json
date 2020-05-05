@@ -3,7 +3,10 @@
   "version": "1.1.0",
   "main": "dist/index.js",
   "repository": "https://github.com/ibitcy/eo-logger.git",
-  "author": "Maksim Sharipov <m.v.sharipov@gmail.com>",
+  "author": {
+    "name": "Maksim Sharipov",
+    "url": "https://github.com/pret-a-porter"
+  },
   "license": "MIT",
   "scripts": {
     "build": "tsc",

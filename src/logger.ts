@@ -21,7 +21,7 @@ export class Logger {
     this.transport = params?.transport || new Transport();
   }
 
-  public debug(message: string, data?: Record<string, unknown>): void {
+  public debug(message: string): void {
     const ecsMessage = this.formatter.formatDebugMessage(
       message,
       this.context.aggregate(),

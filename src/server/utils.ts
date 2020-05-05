@@ -23,20 +23,15 @@ export function parseUserAgent(userAgent: string): ECS.UserAgent {
   };
 }
 
-export function fillClientDataByIp(client: ECS.Client, ip: string): ECS.Client {
+export function parseGeo(ip: string): ECS.Geo {
   const lookupResult = geoIp.lookup(ip);
-  let geo: ECS.Geo = {};
 
   if (lookupResult && lookupResult.country) {
-    geo = {
+    return {
       country_iso_code: lookupResult.country,
       city_name: lookupResult.city,
     };
   }
 
-  return {
-    ...client,
-    geo,
-    ip,
-  };
+  return {};
 }
