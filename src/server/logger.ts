@@ -11,11 +11,17 @@ export interface Params {
   maxQueueSize: number;
 }
 
+interface Index {
+  index: {
+    _index: string;
+  };
+}
+
 export class Transport extends BaseTransport {
   protected readonly client: Client;
   protected readonly indexBase: string;
   protected readonly maxQueueSize: number;
-  protected readonly queue: any[] = [];
+  protected readonly queue: Array<ECS.Message | Index> = [];
 
   public constructor(params: Params) {
     super();

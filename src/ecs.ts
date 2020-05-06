@@ -6,6 +6,7 @@ export namespace ECS {
       custom: Record<string, unknown>; // Custom field
       ecs: Meta;
       error: Error;
+      host: Host;
       http: HTTP;
       log: Log;
       metrics: Record<string, number>; // Custom field
@@ -20,7 +21,7 @@ export namespace ECS {
    * @see https://www.elastic.co/guide/en/ecs/master/ecs-base.html
    */
   export type Base = Partial<{
-    '@timestamp': Date;
+    '@timestamp': string;
 
     labels: Record<string, string>;
     message: string;
@@ -198,4 +199,19 @@ export namespace ECS {
   export type Tracing = Partial<{
     id: string;
   }>;
+
+  /**
+   * @see https://www.elastic.co/guide/en/ecs/current/ecs-host.html
+   */
+  export type Host = Partial<{
+    architecture: string;
+    domain: string;
+    hostname: string;
+    id: string;
+    ip: string;
+    mac: string;
+    name: string;
+    type: string;
+    uptime: number;
+  }>
 }
