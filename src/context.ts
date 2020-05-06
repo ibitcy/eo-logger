@@ -6,6 +6,7 @@ export class Context {
   protected http: ECS.HTTP = {};
   protected labels: Record<string, string> = {};
   protected log: ECS.Log = {};
+  protected service: ECS.Service = {};
   protected tracing: ECS.Tracing = {};
   protected url: ECS.Url = {};
   protected userAgent: ECS.UserAgent = {};
@@ -22,6 +23,7 @@ export class Context {
       http: this.http,
       labels: this.labels,
       log: this.log,
+      service: this.service,
       tracing: this.tracing,
       url: this.url,
       user_agent: this.userAgent,
@@ -74,6 +76,13 @@ export class Context {
     this.log = {
       ...this.log,
       ...log,
+    };
+  }
+
+  public setService(service: ECS.Service) {
+    this.service = {
+      ...this.service,
+      ...service,
     };
   }
 
