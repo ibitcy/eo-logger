@@ -26,6 +26,18 @@ export class Transport extends BaseTransport {
   }
 
   public send(message: ECS.Message): void {
+    this.addToQueue(message);
+
+    if (this.queue.length > this.maxQueueSize) {
+      this.client.bulk({
+        body: this.queue,
+      });
+
+      this.queue.length = 0;
+    }
+  }
+
+  protected addToQueue(message: ECS.Message) {
     const now = new Date();
     const nowFormatted = `${now.getFullYear()}.${(now.getMonth() + 1)
       .toString()
@@ -46,13 +58,5 @@ export class Transport extends BaseTransport {
         ...message,
       },
     );
-
-    if (this.queue.length > this.maxQueueSize) {
-      this.client.bulk({
-        body: this.queue,
-      });
-
-      this.queue.length = 0;
-    }
   }
 }
