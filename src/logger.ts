@@ -3,6 +3,7 @@ import { Formatter } from './formatter';
 import { Transport } from './transport';
 
 export interface LoggerParams {
+  context?: Context;
   formatter?: Formatter;
   transport?: Transport;
 }
@@ -11,9 +12,10 @@ export class Logger {
   protected readonly formatter: Formatter;
   protected readonly transport: Transport;
 
-  public readonly context = new Context();
+  public readonly context: Context;
 
   public constructor(params?: LoggerParams) {
+    this.context = params?.context || new Context();
     this.formatter = params?.formatter || new Formatter();
     this.transport = params?.transport || new Transport();
   }
