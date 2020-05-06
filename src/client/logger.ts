@@ -1,6 +1,6 @@
 import { Context as BaseContext } from '../context';
 import { ECS } from '../ecs';
-import { Logger as BaseLogger, LoggerParams } from '../logger';
+import { Logger as BaseLogger } from '../logger';
 import { getPerformanceMetrics, getScreenInformation } from './utils';
 
 export class Logger extends BaseLogger {
