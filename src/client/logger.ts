@@ -9,6 +9,12 @@ export class Logger extends BaseLogger {
       ...params,
       context: params.context || new Context(),
     });
+
+    this.context.setHttp({
+      request: {
+        referrer: document.referrer,
+      },
+    });
   }
 
   public collectMetrics(metrics: Record<string, number> = {}): void {
