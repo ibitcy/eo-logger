@@ -1,3 +1,5 @@
+import { NetworkInterfaceBase } from 'os';
+
 export namespace ECS {
   export type Message = Base &
     Partial<{
@@ -10,6 +12,7 @@ export namespace ECS {
       http: HTTP;
       log: Log;
       metrics: Record<string, number>; // Custom field
+      networkInformation: NetworkInformation; // Custom field
       screen: Record<string, string>; // Custom field
       service: Service;
       tracing: Tracing;
@@ -62,6 +65,15 @@ export namespace ECS {
     bytes: number;
     content: string;
   }>;
+
+  /**
+   * @see https://developer.mozilla.org/en-US/docs/Web/API/NetworkInformation
+   */
+  export type NetworkInformation = Partial<{
+    downlink: number;
+    effectiveType: string;
+    rtt: number;
+  }>
 
   /**
    * @see https://www.elastic.co/guide/en/ecs/current/ecs-ecs.html

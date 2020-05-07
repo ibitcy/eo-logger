@@ -1,3 +1,5 @@
+import { ECS } from '../ecs';
+
 export function getScreenInformation(): Record<string, string> | undefined {
   try {
     return {
@@ -35,6 +37,21 @@ export function getPerformanceMetrics(): Record<string, number> | undefined {
     }
 
     return metrics;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export function getNetworkInformation(): ECS.NetworkInformation | undefined {
+  try {
+    const { connection } = navigator as any;
+    if (typeof connection === 'object') {
+      return {
+        downlink: connection.downlink,
+        effectiveType: connection.effectiveType,
+        rtt: connection.rtt,
+      };
+    }
   } catch (error) {
     console.error(error);
   }

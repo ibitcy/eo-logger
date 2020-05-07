@@ -1,7 +1,11 @@
 import { Context as BaseContext } from '../context';
 import { ECS } from '../ecs';
 import { Logger as BaseLogger, LoggerParams } from '../logger';
-import { getPerformanceMetrics, getScreenInformation } from './utils';
+import {
+  getNetworkInformation,
+  getPerformanceMetrics,
+  getScreenInformation,
+} from './utils';
 
 export class Logger extends BaseLogger {
   public constructor(params: LoggerParams) {
@@ -24,6 +28,7 @@ export class Logger extends BaseLogger {
         ...getPerformanceMetrics(),
         ...metrics,
       },
+      networkInformation: getNetworkInformation(),
       screen: getScreenInformation(),
     };
 
