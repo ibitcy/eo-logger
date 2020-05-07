@@ -22,14 +22,14 @@ export class Logger extends BaseLogger {
   }
 
   public collectMetrics(metrics: Record<string, number> = {}): void {
-    const ecsMessage = {
-      ...this.context.aggregate(),
-      metrics: {
-        ...getPerformanceMetrics(),
-        ...metrics,
-      },
-      networkInformation: getNetworkInformation(),
-      screen: getScreenInformation(),
+    const ecsMessage = this.context.aggregate();
+    ecsMessage.networkInformation = getNetworkInformation();
+    ecsMessage.screen = getScreenInformation();
+
+    ecsMessage.metrics = {
+      ...getPerformanceMetrics(),
+      ...ecsMessage.metrics,
+      ...metrics,
     };
 
     this.transport.send(ecsMessage);

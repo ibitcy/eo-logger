@@ -6,6 +6,7 @@ export class Context {
   protected http: ECS.HTTP = {};
   protected labels: Record<string, string> = {};
   protected log: ECS.Log = {};
+  protected metrics: Record<string, number> = {};
   protected service: ECS.Service = {};
   protected tracing: ECS.Tracing = {};
   protected url: ECS.Url = {};
@@ -23,6 +24,7 @@ export class Context {
       http: this.http,
       labels: this.labels,
       log: this.log,
+      metrics: this.metrics,
       service: this.service,
       tracing: this.tracing,
       url: this.url,
@@ -90,6 +92,13 @@ export class Context {
     this.tracing = {
       ...this.tracing,
       ...tracing,
+    };
+  }
+
+  public setMetrics(metrics: Record<string, number>) {
+    this.metrics = {
+      ...this.metrics,
+      ...metrics,
     };
   }
 }
