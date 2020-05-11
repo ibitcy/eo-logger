@@ -1,4 +1,5 @@
 import { Context } from './context';
+import { ECS } from './ecs';
 import { Formatter } from './formatter';
 import { Transport } from './transport';
 
@@ -20,11 +21,11 @@ export class Logger {
     this.transport = params?.transport || new Transport();
   }
 
-  public debug(message: string): void {
-    const ecsMessage = this.formatter.formatDebugMessage(
-      message,
-      this.context.aggregate(),
-    );
+  public debug(message: string, payload?: ECS.Message): void {
+    const ecsMessage = this.formatter.formatDebugMessage(message, {
+      ...this.context.aggregate(),
+      ...payload,
+    });
 
     this.transport.send(ecsMessage);
   }

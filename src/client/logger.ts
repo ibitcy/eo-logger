@@ -21,18 +21,13 @@ export class Logger extends BaseLogger {
     });
   }
 
-  public collectMetrics(metrics: Record<string, number> = {}): void {
-    const ecsMessage = this.context.aggregate();
-    ecsMessage.networkInformation = getNetworkInformation();
-    ecsMessage.screen = getScreenInformation();
+  public collectMetrics(): void {
+    this.debug('metrics', {
+      networkInformation: getNetworkInformation(),
+      screen: getScreenInformation(),
+    });
 
-    ecsMessage.metrics = {
-      ...getPerformanceMetrics(),
-      ...ecsMessage.metrics,
-      ...metrics,
-    };
-
-    this.transport.send(ecsMessage);
+    this.context.clearMetrics();
   }
 }
 

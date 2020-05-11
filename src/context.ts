@@ -53,7 +53,7 @@ export class Context {
     };
   }
 
-  public setUrl(url: ECS.Url) {
+  public setUrl(url: ECS.Url): void {
     this.url = {
       ...this.url,
       ...url,
@@ -67,38 +67,42 @@ export class Context {
     };
   }
 
-  public setHttp(http: ECS.HTTP) {
+  public setHttp(http: ECS.HTTP): void {
     this.http = {
       ...this.http,
       ...http,
     };
   }
 
-  public setLog(log: ECS.Log) {
+  public setLog(log: ECS.Log): void {
     this.log = {
       ...this.log,
       ...log,
     };
   }
 
-  public setService(service: ECS.Service) {
+  public setService(service: ECS.Service): void {
     this.service = {
       ...this.service,
       ...service,
     };
   }
 
-  public setTracing(tracing: ECS.Tracing) {
+  public setTracing(tracing: ECS.Tracing): void {
     this.tracing = {
       ...this.tracing,
       ...tracing,
     };
   }
 
-  public setMetrics(metrics: Record<string, number>) {
+  public setMetrics(metrics: Record<string, number>): void {
     this.metrics = {
       ...this.metrics,
       ...metrics,
     };
+  }
+
+  public clearMetrics(): void {
+    this.metrics = {};
   }
 }
