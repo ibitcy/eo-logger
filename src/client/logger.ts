@@ -22,6 +22,12 @@ export class Logger extends BaseLogger {
   }
 
   public collectMetrics(): void {
+    const performanceMetrics = getPerformanceMetrics();
+
+    if (performanceMetrics) {
+      this.context.setMetrics(performanceMetrics);
+    }
+
     this.debug('metrics', {
       networkInformation: getNetworkInformation(),
       screen: getScreenInformation(),
