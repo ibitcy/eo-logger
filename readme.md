@@ -1,7 +1,19 @@
-# eo-logger
+<p align="center">
+  <img src="images/logo.svg" />
+</p>
 
-* Isomorphic logger based on Elastic Common Schema
-* Elastic Common Schema typings out of the box
+<h1 align="center">
+  eo-logger
+</h1>
+
+<p align="center">
+  Isomorphic logger based on Elastic Common Schema
+</p>
+
+## ✨ Features:
+- Tiny <1KB size gzip
+- Works in Node.js and in Browser
+- Built-in Typescript support
 
 ## How to install
 
