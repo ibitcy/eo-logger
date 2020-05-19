@@ -32,14 +32,14 @@
     "@elastic/elasticsearch": "^7.6.1",
     "@size-limit/preset-small-lib": "^4.4.5",
     "@types/geoip-lite": "^1.1.31",
-    "@types/node": "^13.13.5",
+    "@types/node": "^14.0.1",
     "@types/ua-parser-js": "^0.7.33",
     "size-limit": "^4.4.5",
     "typescript": "^3.8.3"
   },
   "dependencies": {
     "geoip-lite": "^1.4.1",
-    "tslib": "^1.11.1",
+    "tslib": "^2.0.0",
     "ua-parser-js": "^0.7.21"
   }
 }
