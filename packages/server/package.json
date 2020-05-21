@@ -17,6 +17,7 @@
     "lib"
   ],
   "publishConfig": {
+    "access": "public",
     "registry": "https://registry.npmjs.org"
   },
   "repository": {
@@ -41,5 +42,6 @@
     "@types/node": "^14.0.1",
     "@types/ua-parser-js": "^0.7.33",
     "typescript": "^3.8.3"
-  }
+  },
+  "gitHead": "eaa6a9d463314edf4d08745019256db9114be871"
 }

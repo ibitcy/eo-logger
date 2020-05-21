@@ -5,10 +5,6 @@
     "postinstall": "npm run bootstrap",
     "build": "lerna run build"
   },
-  "devDependencies": {
-    "size-limit": "^4.4.5",
-    "typescript": "^3.8.3"
-  },
   "workspaces": [
     "packages/*"
   ]

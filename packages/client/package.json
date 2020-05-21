@@ -14,6 +14,7 @@
     "lib"
   ],
   "publishConfig": {
+    "access": "public",
     "registry": "https://registry.npmjs.org"
   },
   "repository": {
@@ -33,7 +34,9 @@
     "web-vitals": "^0.2.2"
   },
   "devDependencies": {
-    "@size-limit/preset-small-lib": "^4.5.0"
+    "@size-limit/preset-small-lib": "^4.5.0",
+    "size-limit": "^4.4.5",
+    "typescript": "^3.8.3"
   },
   "size-limit": [
     {
@@ -41,5 +44,6 @@
       "limit": "700B",
       "webpack": false
     }
-  ]
+  ],
+  "gitHead": "eaa6a9d463314edf4d08745019256db9114be871"
 }
