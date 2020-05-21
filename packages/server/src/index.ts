@@ -3,6 +3,8 @@ import * as os from 'os';
 
 import type { Client } from '@elastic/elasticsearch';
 
+export * from './utils';
+
 export interface Params {
   client: Client;
   indexBase: string;

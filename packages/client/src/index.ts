@@ -1,14 +1,17 @@
 import {
+  Context as BaseContext,
   ECS,
   Logger as BaseLogger,
   LoggerParams,
-  Context as BaseContext,
 } from '@eo-logger/core';
+
 import {
   getNetworkInformation,
   getPerformanceMetrics,
   getScreenInformation,
 } from './utils';
+
+export * from './utils';
 
 export class Logger extends BaseLogger {
   public constructor(params: LoggerParams) {
