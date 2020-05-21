@@ -1,5 +1,4 @@
 {
-  "compileOnSave": false,
   "compilerOptions": {
     "declaration": true,
     "downlevelIteration": true,
@@ -12,6 +11,5 @@
     "sourceMap": false,
     "strict": true,
     "target": "es5"
-  },
-  "include": ["src"]
+  }
 }

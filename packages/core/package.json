@@ -1,0 +1,47 @@
+{
+  "name": "@eo-logger/core",
+  "version": "1.0.0",
+  "description": "Core of eo-logger",
+  "keywords": [
+    "elasticsearch"
+  ],
+  "author": "Maksim Sharipov <m.v.sharipov@gmail.com>",
+  "homepage": "https://github.com/ibitcy/eo-logger#readme",
+  "license": "ISC",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "engines": {
+    "node": ">= 10"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ibitcy/eo-logger.git"
+  },
+  "scripts": {
+    "build": "rm -rf lib && tsc",
+    "postbuild": "size-limit",
+    "prepublish": "npm run build"
+  },
+  "bugs": {
+    "url": "https://github.com/ibitcy/eo-logger/issues"
+  },
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^4.5.0"
+  },
+  "size-limit": [
+    {
+      "path": "lib/index.js",
+      "limit": "180B",
+      "webpack": false
+    }
+  ]
+}

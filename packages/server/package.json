@@ -1,0 +1,45 @@
+{
+  "name": "@eo-logger/server",
+  "version": "1.0.0",
+  "description": "Predefined server logger",
+  "keywords": [
+    "elasticsearch"
+  ],
+  "author": "Maksim Sharipov <m.v.sharipov@gmail.com>",
+  "homepage": "https://github.com/ibitcy/eo-logger#readme",
+  "license": "ISC",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ibitcy/eo-logger.git"
+  },
+  "scripts": {
+    "build": "rm -rf lib && tsc",
+    "prepublish": "npm run build"
+  },
+  "bugs": {
+    "url": "https://github.com/ibitcy/eo-logger/issues"
+  },
+  "dependencies": {
+    "@elastic/elasticsearch": "^7.6.1",
+    "@eo-logger/core": "^1.0.0",
+    "geoip-lite": "^1.4.1",
+    "ua-parser-js": "^0.7.21"
+  },
+  "devDependencies": {
+    "@types/geoip-lite": "^1.1.31",
+    "@types/node": "^14.0.1",
+    "@types/ua-parser-js": "^0.7.33",
+    "typescript": "^3.8.3"
+  }
+}

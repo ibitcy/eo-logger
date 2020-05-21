@@ -1,46 +1,15 @@
 {
-  "name": "eo-logger",
-  "version": "1.4.3",
-  "main": "dist/index.js",
-  "repository": "https://github.com/ibitcy/eo-logger.git",
-  "author": {
-    "name": "Maksim Sharipov",
-    "url": "https://github.com/pret-a-porter"
-  },
-  "engines": {
-    "node": ">= 10"
-  },
-  "license": "MIT",
+  "private": true,
   "scripts": {
-    "build": "tsc",
-    "postbuild": "size-limit",
-    "preversion": "npm run build"
+    "bootstrap": "lerna bootstrap",
+    "postinstall": "npm run bootstrap",
+    "build": "lerna run build"
   },
-  "size-limit": [
-    {
-      "path": "dist/index.js",
-      "limit": "180B",
-      "webpack": false
-    },
-    {
-      "path": "dist/client/logger.js",
-      "limit": "700B",
-      "webpack": false
-    }
-  ],
   "devDependencies": {
-    "@elastic/elasticsearch": "^7.6.1",
-    "@size-limit/preset-small-lib": "^4.4.5",
-    "@types/geoip-lite": "^1.1.31",
-    "@types/node": "^14.0.1",
-    "@types/ua-parser-js": "^0.7.33",
     "size-limit": "^4.4.5",
     "typescript": "^3.8.3"
   },
-  "dependencies": {
-    "geoip-lite": "^1.4.1",
-    "tslib": "^2.0.0",
-    "ua-parser-js": "^0.7.21",
-    "web-vitals": "^0.2.2"
-  }
+  "workspaces": [
+    "packages/*"
+  ]
 }
