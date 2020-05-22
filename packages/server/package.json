@@ -25,8 +25,8 @@
     "url": "git+https://github.com/ibitcy/eo-logger.git"
   },
   "scripts": {
-    "build": "rm -rf lib && tsc",
-    "prepublish": "npm run build"
+    "build": "tsc",
+    "prepublish": "rm -rf lib && npm run build"
   },
   "bugs": {
     "url": "https://github.com/ibitcy/eo-logger/issues"
