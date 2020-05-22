@@ -101,8 +101,4 @@ export class Context {
       ...metrics,
     };
   }
-
-  public clearMetrics(): void {
-    this.metrics = {};
-  }
 }

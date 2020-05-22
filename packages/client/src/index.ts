@@ -4,15 +4,11 @@ import {
   Logger as BaseLogger,
   LoggerParams,
 } from '@eo-logger/core';
+import { getCLS, getFCP, getFID, getLCP, getTTFB, Metric } from 'web-vitals';
 
-import {
-  getNetworkInformation,
-  getPerformanceMetrics,
-  getScreenInformation,
-} from './utils';
+import { getNetworkInformation, getScreenInformation } from './utils';
 
 export * from './utils';
-
 export class Logger extends BaseLogger {
   public constructor(params: LoggerParams) {
     super({
@@ -25,21 +21,18 @@ export class Logger extends BaseLogger {
         referrer: document.referrer,
       },
     });
-  }
 
-  public collectMetrics(): void {
-    const performanceMetrics = getPerformanceMetrics();
+    const saveMetric = (metric: Metric) => {
+      this.context.setMetrics({
+        [metric.name]: metric.value,
+      });
+    };
 
-    if (performanceMetrics) {
-      this.context.setMetrics(performanceMetrics);
-    }
-
-    this.debug('metrics', {
-      networkInformation: getNetworkInformation(),
-      screen: getScreenInformation(),
-    });
-
-    this.context.clearMetrics();
+    getCLS(saveMetric);
+    getFCP(saveMetric);
+    getFID(saveMetric);
+    getLCP(saveMetric);
+    getTTFB(saveMetric);
   }
 }
 
@@ -53,6 +46,9 @@ export class Context extends BaseContext {
       path: document.location.pathname,
       query: document.location.search,
     };
+
+    ecsMessage.networkInformation = getNetworkInformation();
+    ecsMessage.screen = getScreenInformation();
 
     return ecsMessage;
   }
