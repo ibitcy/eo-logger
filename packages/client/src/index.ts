@@ -2,15 +2,30 @@ import {
   Context as BaseContext,
   ECS,
   Logger as BaseLogger,
-  LoggerParams,
+  LoggerParams as BaseLoggerParams,
 } from '@eo-logger/core';
 import { getCLS, getFCP, getFID, getLCP, getTTFB, Metric } from 'web-vitals';
 
 import { getNetworkInformation, getScreenInformation } from './utils';
 
 export * from './utils';
+
+export type LoggerParams = BaseLoggerParams & {
+  context?: Context;
+};
+
 export class Logger extends BaseLogger {
-  public constructor(params: LoggerParams) {
+  public readonly context!: Context;
+
+  private readonly coreMetrics: ReadonlyArray<Metric['name']> = [
+    'CLS',
+    'FCP',
+    'FID',
+    'LCP',
+    'TTFB',
+  ];
+
+  public constructor(params: LoggerParams = {}) {
     super({
       ...params,
       context: params.context || new Context(),
@@ -26,6 +41,10 @@ export class Logger extends BaseLogger {
       this.context.setMetrics({
         [metric.name]: metric.value,
       });
+
+      if (this.coreMetrics.every(this.context.hasMetricAlreadyRecorded)) {
+        this.debug('metrics');
+      }
     };
 
     getCLS(saveMetric);
@@ -51,5 +70,9 @@ export class Context extends BaseContext {
     ecsMessage.screen = getScreenInformation();
 
     return ecsMessage;
+  }
+
+  public hasMetricAlreadyRecorded(metricName: Metric['name']): boolean {
+    return typeof this.metrics[metricName] === 'number';
   }
 }

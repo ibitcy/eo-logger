@@ -15,10 +15,10 @@ export class Logger {
 
   public readonly context: Context;
 
-  public constructor(params?: LoggerParams) {
-    this.context = params?.context || new Context();
-    this.formatter = params?.formatter || new Formatter();
-    this.transport = params?.transport || new Transport();
+  public constructor({ context, formatter, transport }: LoggerParams = {}) {
+    this.context = context || new Context();
+    this.formatter = formatter || new Formatter();
+    this.transport = transport || new Transport();
   }
 
   public debug(message: string, payload?: ECS.Message): void {
