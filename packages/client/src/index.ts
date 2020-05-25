@@ -16,9 +16,9 @@ export type LoggerParams = BaseLoggerParams & {
 
 export class Logger extends BaseLogger {
   public readonly context!: Context;
+  private hasMetricsAlreadyCollected = false;
 
   private readonly coreMetrics: ReadonlyArray<Metric['name']> = [
-    'CLS',
     'FCP',
     'FID',
     'LCP',
@@ -42,8 +42,11 @@ export class Logger extends BaseLogger {
         [metric.name]: metric.value,
       });
 
-      if (this.coreMetrics.every(this.context.hasMetricAlreadyRecorded)) {
+      const hasMetricAlreadyRecorded = (metricName: Metric['name']) => this.context.hasMetricAlreadyRecorded(metricName)
+
+      if (!this.hasMetricsAlreadyCollected && this.coreMetrics.every(hasMetricAlreadyRecorded)) {
         this.debug('metrics');
+        this.hasMetricsAlreadyCollected = true;
       }
     };
 
