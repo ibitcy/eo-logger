@@ -14,16 +14,13 @@ export type LoggerParams = BaseLoggerParams & {
   context?: Context;
 };
 
+type MetricName = Metric['name'];
+
 export class Logger extends BaseLogger {
   public readonly context!: Context;
   private hasMetricsAlreadyCollected = false;
 
-  private readonly coreMetrics: ReadonlyArray<Metric['name']> = [
-    'FCP',
-    'FID',
-    'LCP',
-    'TTFB',
-  ];
+  private readonly coreMetrics: ReadonlyArray<MetricName> = ['FID', 'LCP'];
 
   public constructor(params: LoggerParams = {}) {
     super({
@@ -42,9 +39,13 @@ export class Logger extends BaseLogger {
         [metric.name]: metric.value,
       });
 
-      const hasMetricAlreadyRecorded = (metricName: Metric['name']) => this.context.hasMetricAlreadyRecorded(metricName)
+      const hasMetricAlreadyRecorded = (metricName: MetricName) =>
+        this.context.hasMetricAlreadyRecorded(metricName);
 
-      if (!this.hasMetricsAlreadyCollected && this.coreMetrics.every(hasMetricAlreadyRecorded)) {
+      if (
+        !this.hasMetricsAlreadyCollected &&
+        this.coreMetrics.every(hasMetricAlreadyRecorded)
+      ) {
         this.debug('metrics');
         this.hasMetricsAlreadyCollected = true;
       }
@@ -75,7 +76,7 @@ export class Context extends BaseContext {
     return ecsMessage;
   }
 
-  public hasMetricAlreadyRecorded(metricName: Metric['name']): boolean {
+  public hasMetricAlreadyRecorded(metricName: MetricName): boolean {
     return typeof this.metrics[metricName] === 'number';
   }
 }
