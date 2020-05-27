@@ -1,6 +1,6 @@
 {
   "name": "@eo-logger/client",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Client part of eo-logger",
   "author": "Maksim Sharipov <m.v.sharipov@gmail.com>",
   "homepage": "https://github.com/ibitcy/eo-logger#readme",
