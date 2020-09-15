@@ -71,7 +71,7 @@ export namespace ECS {
     downlink: number;
     effectiveType: string;
     rtt: number;
-  }>
+  }>;
 
   /**
    * @see https://www.elastic.co/guide/en/ecs/current/ecs-ecs.html
@@ -125,6 +125,7 @@ export namespace ECS {
     full_name: string;
     hash: string;
     id: string;
+    is_demo?: 0 | 1;
     name: string;
   }>;
 
@@ -223,5 +224,5 @@ export namespace ECS {
     name: string;
     type: string;
     uptime: number;
-  }>
+  }>;
 }
