@@ -124,8 +124,8 @@ export namespace ECS {
     email: string;
     full_name: string;
     hash: string;
-    id: string;
     is_demo?: 0 | 1;
+    id: string;
     name: string;
   }>;
 
