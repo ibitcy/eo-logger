@@ -1,6 +1,6 @@
 {
   "name": "@eo-logger/client",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "Client part of eo-logger",
   "author": "Maksim Sharipov <m.v.sharipov@gmail.com>",
   "homepage": "https://github.com/ibitcy/eo-logger#readme",
@@ -30,7 +30,7 @@
     "url": "https://github.com/ibitcy/eo-logger/issues"
   },
   "dependencies": {
-    "@eo-logger/core": "^2.1.1",
+    "@eo-logger/core": "^2.1.2",
     "web-vitals": "^0.2.2"
   },
   "devDependencies": {
