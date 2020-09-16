@@ -43,5 +43,5 @@
     "@types/ua-parser-js": "^0.7.33",
     "typescript": "^3.8.3"
   },
-  "gitHead": "98ea9e19ec3aa75144a5fe866efe5cd38385dd8b"
+  "gitHead": "15e546543d1e30d19e19136e8c4f7badba2bb8b2"
 }
