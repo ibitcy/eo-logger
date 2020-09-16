@@ -1,6 +1,6 @@
 {
   "name": "@eo-logger/server",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Predefined server logger",
   "keywords": [
     "elasticsearch"
@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "@elastic/elasticsearch": "^7.6.1",
-    "@eo-logger/core": "^2.1.0",
+    "@eo-logger/core": "^2.1.1",
     "geoip-lite": "^1.4.1",
     "ua-parser-js": "^0.7.21"
   },
