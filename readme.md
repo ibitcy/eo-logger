@@ -14,6 +14,7 @@
 - Tiny <1KB size gzip
 - Works in Node.js and in Browser
 - Built-in Typescript support
+- Google Web Vitals and Elastic Common Schema under the hood
 
 ## How to install
 
