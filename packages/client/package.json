@@ -4,7 +4,7 @@
   "description": "Client part of eo-logger",
   "author": "Maksim Sharipov <m.v.sharipov@gmail.com>",
   "homepage": "https://github.com/ibitcy/eo-logger#readme",
-  "license": "ISC",
+  "license": "MIT",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "directories": {
