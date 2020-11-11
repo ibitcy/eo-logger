@@ -6,6 +6,7 @@ export namespace ECS {
       custom: Record<string, unknown>; // Custom field
       ecs: Meta;
       error: Error;
+      error_meta: Record<string, unknown>; // Custom field
       host: Host;
       http: HTTP;
       log: Log;

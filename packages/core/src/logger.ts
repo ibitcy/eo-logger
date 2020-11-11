@@ -30,11 +30,16 @@ export class Logger {
     this.transport.send(ecsMessage);
   }
 
-  public error(code: string, error?: Error): void {
+  public error(
+    code: string,
+    error?: Error,
+    meta?: Record<string, unknown>,
+  ): void {
     const ecsMessage = this.formatter.formatErrorMessage(
       code,
       this.context.aggregate(),
       error,
+      meta,
     );
 
     this.transport.send(ecsMessage);

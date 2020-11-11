@@ -19,6 +19,7 @@ export class Formatter {
     code: string,
     context: ECS.Message,
     error?: Error,
+    meta?: Record<string, unknown>
   ): Readonly<ECS.Message> {
     let ecsError: ECS.Error = { code };
 
@@ -34,6 +35,7 @@ export class Formatter {
     return {
       ...context,
       error: ecsError,
+      error_meta: meta,
       log: {
         ...context.log,
         level: 'error',
